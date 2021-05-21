@@ -18,7 +18,7 @@ class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    status = models.BooleanField(default=False)
+    complete = models.BooleanField(default=False)
     category = models.CharField(max_length=50)
     due_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -28,4 +28,4 @@ class Task(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['status']
+        ordering = ['complete']
