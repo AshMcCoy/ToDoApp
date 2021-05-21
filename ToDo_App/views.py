@@ -8,7 +8,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Task
+from .models import Task, Grocery
 
 class CustomLoginView(LoginView):
     template_name= 'ToDo_App/login.html'
@@ -76,3 +76,39 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     model= Task
     context_object_name= 'task'
     success_url= reverse_lazy('tasks')
+
+class GroceryList(LoginRequiredMixin, ListView):
+    model = Grocery
+    context_object_name= 'groceries'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['groceries']= context['groceries'].filter(user=self.request.user)
+        context['count']= context['groceries'].filter(complete=False).count()
+        
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input: 
+            context['groceries'] = context['groceries'].filter(title__startswith=search_input)
+
+        context['search_input'] = search_input
+
+        return context
+
+class GroceryCreate(LoginRequiredMixin, CreateView):
+    model= Grocery
+    fields = ['item', 'category', 'complete']
+    success_url= reverse_lazy('grocery-list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(GroceryCreate, self).form_valid(form)
+
+class GroceryUpdate(LoginRequiredMixin, UpdateView):
+    model= Grocery
+    fields= ['item', 'category', 'complete']
+    success_url= reverse_lazy('grocery-list')
+
+class GroceryDelete(LoginRequiredMixin, DeleteView):
+    model= Grocery
+    context_object_name= 'groceries'
+    success_url= reverse_lazy('grocery-list')

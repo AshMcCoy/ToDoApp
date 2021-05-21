@@ -29,3 +29,23 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['complete']
+
+class GroceryManager(models.Manager):
+    def grocery_validator(self, form):
+        errors = {}
+
+        if len(form['item']) < 3:
+            errors['item'] = "An item name must be provided and consist of at least 3 characters!"
+        return errors
+
+class Grocery(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    item= models.CharField(max_length=100)
+    complete= models.BooleanField(default=False)
+    category= models.CharField(max_length= 50)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.item
+

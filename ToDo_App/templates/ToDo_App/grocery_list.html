@@ -1,7 +1,7 @@
-    {% extends 'ToDo_App/main.html' %}
-    {% load static %}
-    {% block content %}
-
+{% extends 'ToDo_App/main.html' %}
+{% load static %}
+{% block content %}
+<div id="nav-grocery">
     <div class="header-bar">
         <div>
             <h1>Hello {{request.user|title}}</h1>
@@ -38,28 +38,28 @@
             <input type='text' name='search-area' value="{{search_input}}">
             <input class="button ms-2" type="submit" value='Search'>
         </form>
-        <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+        <a id="add-link" href="{% url 'grocery-create' %}">&#x2b;</a>
     </div>
-    <h3 style="margin: 0px 0px 0px 15px;">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
+    <h3 style="margin: 0px 0px 0px 15px;">You have <i>{{count}}</i> item{{ count|pluralize:"s"}} in your grocery list</h3>
 
 
 
     <div class="tast-items-wrapper">
-        {% for task in tasks %}
+        {% for grocery in groceries %}
             <div class="task-wrapper">
-                {% if task.complete %}
+                {% if grocery.complete %}
                 <div class="task-title">
                     <div class="task-complete-icon"></div>
-                    <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+                    <i><s><a href="{% url 'grocery-update' grocery.id %}">{{grocery}}</a></s></i>
                 </div>
-                <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+                <a class="delete-link" href="{% url 'grocery-delete' grocery.id %}">&#215;</a>
 
                 {% else %}
                 <div class="task-title">
                     <div class="task-incomplete-icon"></div>
-                    <a href="{% url 'task-update' task.id %}">{{task}}</a>
+                    <a href="{% url 'grocery-update' grocery.id %}">{{grocery}}</a>
                 </div>
-                <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+                <a class="delete-link" href="{% url 'grocery-delete' grocery.id %}">&#215;</a>
                 {% endif %}
 
             </div>
@@ -68,6 +68,6 @@
         <h3>No items in list</h3>
         {% endfor %}
     </div>
+</div>
 
-
-    {% endblock content %}
+{% endblock content %}
