@@ -49,3 +49,28 @@ class Grocery(models.Model):
     def __str__(self):
         return self.item
 
+    class Meta:
+        ordering = ['complete']
+
+class BillManager(models.Manager):
+    def bill_validator(self, form):
+        errors = {}
+
+        if len(form['bill']) < 3:
+            errors['bill'] = "A bill name must be provided and consist of at least 3 characters!"
+        return errors
+
+class Bill(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    item= models.CharField(max_length=100)
+    paid= models.BooleanField(default=False)
+    category= models.CharField(max_length= 50)
+    due_date = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.item
+
+    class Meta:
+        ordering = ['paid']

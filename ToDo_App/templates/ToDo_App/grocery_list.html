@@ -5,19 +5,19 @@
     <div class="header-bar2">
         <div>
             <h1>Hello {{request.user|title}}</h1>
-            <div style="margin: 15px 0px 0px 0px;">
+            <div style="margin: auto;">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a href="{% url 'tasks' %}"><button class="nav-link active link-dark" id="nav-tasks-tab" data-bs-toggle="tab" data-bs-target="#nav-tasks" type="button" role="tab" aria-controls="nav-tasks" aria-selected="true">Tasks</button></a>
-                        <a href="{% url 'grocery-list' %}"><button class="nav-link link-dark" id="nav-grocery-tab" data-bs-toggle="tab" data-bs-target="#nav-grocery" type="button" role="tab" aria-controls="nav-grocery" aria-selected="false">Grocery List</button></a>
+                        <a href="{% url 'tasks' %}"><button class="nav-link link-dark" id="nav-tasks-tab" data-bs-toggle="tab" data-bs-target="#nav-tasks" type="button" role="tab" aria-controls="nav-tasks" aria-selected="false">Tasks</button></a>
+                        <a href="{% url 'grocery-list' %}"><button class="nav-link active link-dark" id="nav-grocery-tab" data-bs-toggle="tab" data-bs-target="#nav-grocery" type="button" role="tab" aria-controls="nav-grocery" aria-selected="true">Grocery List</button></a>
                         <button class="nav-link link-dark" id="nav-mealplanner-tab" data-bs-toggle="tab" data-bs-target="#nav-mealplanner" type="button" role="tab" aria-controls="nav-mealplanner" aria-selected="false">Meal Planner</button>
-                        <button class="nav-link link-dark" id="nav-billtracker-tab" data-bs-toggle="tab" data-bs-target="#nav-billtracker" type="button" role="tab" aria-controls="nav-billtracker" aria-selected="false">Bill Tracker</button>
+                        <a href="{% url 'bill-list' %}"><button class="nav-link link-dark" id="nav-billtracker-tab" data-bs-toggle="tab" data-bs-target="#nav-billtracker" type="button" role="tab" aria-controls="nav-billtracker" aria-selected="false">Bill Tracker</button></a>
                         <button class="nav-link link-dark" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Events/Calendar</button>
                     </div>
                 </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-tasks" role="tabpanel" aria-labelledby="nav-tasks-tab"></div>
-                        <div class="tab-pane fade" id="nav-grocery" role="tabpanel" aria-labelledby="nav-grocery-tab"></div>
+                        <div class="tab-pane fade" id="nav-tasks" role="tabpanel" aria-labelledby="nav-tasks-tab"></div>
+                        <div class="tab-pane fade show active" id="nav-grocery" role="tabpanel" aria-labelledby="nav-grocery-tab"></div>
                         <div class="tab-pane fade" id="nav-mealplanner" role="tabpanel" aria-labelledby="nav-mealplanner-tab"></div>
                         <div class="tab-pane fade" id="nav-billtracker" role="tabpanel" aria-labelledby="nav-billtracker-tab"></div>
                         <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab"></div>
@@ -40,7 +40,7 @@
         </form>
         <a id="add-link2" href="{% url 'grocery-create' %}">&#x2b;</a>
     </div>
-    <h3 style="margin: 0px 0px 0px 15px;">You have <i>{{count}}</i> item{{ count|pluralize:"s"}} in your grocery list</h3>
+    <h3 style="margin: 0px 0px 0px 15px;">You have <i class="count">{{count}}</i> item{{ count|pluralize:"s"}} in your grocery list</h3>
 
 
 
@@ -49,14 +49,14 @@
             <div class="task-wrapper">
                 {% if grocery.complete %}
                 <div class="task-title">
-                    <div class="task-complete-icon"></div>
+                    <a href="/grocery-incomplete/{{grocery.id}}"><div class="task-complete-icon"></div></a>
                     <i><s><a href="{% url 'grocery-update' grocery.id %}">{{grocery}}</a></s></i>
                 </div>
                 <a class="delete-link" href="{% url 'grocery-delete' grocery.id %}">&#215;</a>
 
                 {% else %}
                 <div class="task-title">
-                    <div class="task-incomplete-icon"></div>
+                    <a href="/grocery-complete/{{grocery.id}}"><div class="task-incomplete-icon"></div></a>
                     <a href="{% url 'grocery-update' grocery.id %}">{{grocery}}</a>
                 </div>
                 <a class="delete-link" href="{% url 'grocery-delete' grocery.id %}">&#215;</a>
