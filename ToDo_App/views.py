@@ -158,7 +158,7 @@ class BillList(LoginRequiredMixin, ListView):
 
 class BillCreate(LoginRequiredMixin, CreateView):
     model= Bill
-    fields = ['item', 'category', 'due_date', 'paid']
+    fields = ['bill', 'category', 'due_date', 'paid']
     success_url= reverse_lazy('bill-list')
 
     def form_valid(self, form):
@@ -167,7 +167,7 @@ class BillCreate(LoginRequiredMixin, CreateView):
 
 class BillUpdate(LoginRequiredMixin, UpdateView):
     model= Bill
-    fields= ['item', 'category', 'due_date', 'paid']
+    fields= ['bill', 'category', 'due_date', 'paid']
     success_url= reverse_lazy('bill-list')
 
 class BillDelete(LoginRequiredMixin, DeleteView):
