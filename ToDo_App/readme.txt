@@ -78,4 +78,4 @@ Maybe there is a better video out there!
 I think we're almost there!! Just need to figure out how we should format the meal planner but once we do it should be easy and then the calendar!
 And then... are we done? :):)!
 
-
+Also - redeployed, but I can only do it off the Master! I'll do it again tomorrow. I need the practice hahaha. Also, do you have an iphone? I can share my notes for deployment. Well I just copied and pasted it off the website but easier to follow I think. 
