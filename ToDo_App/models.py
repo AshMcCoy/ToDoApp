@@ -49,3 +49,14 @@ class Grocery(models.Model):
     def __str__(self):
         return self.item
 
+class Bill(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    bill= models.CharField(max_length= 100)
+    paid= models.BooleanField(default=False)
+    category= models.CharField(max_length=50)
+    due_date = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.bill
