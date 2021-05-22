@@ -60,3 +60,6 @@ class Bill(models.Model):
 
     def __str__(self):
         return self.bill
+
+    class Meta:
+        ordering = ['paid']

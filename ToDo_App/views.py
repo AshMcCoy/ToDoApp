@@ -12,9 +12,6 @@ from .models import Task, Grocery, Bill
 from django.contrib import messages
 import bcrypt
 
-from apiclient.discovery import build 
-from google_auth_oauthlib.flow import InstalledAppFlow
-
 class CustomLoginView(LoginView):
     template_name= 'ToDo_App/login.html'
     fields= '__all__'

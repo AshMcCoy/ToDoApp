@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Task, Grocery
+from .models import *
 
 admin.site.register(Task)
 admin.site.register(Grocery)
+admin.site.register(Bill)

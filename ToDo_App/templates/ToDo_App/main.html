@@ -30,11 +30,12 @@
             font-size: 2em;
         }
 
-        .header-bar,.header-bar2 {
+        .header-bar, .header-bar2, .header-bar4 {
             display: flex;
             justify-content: space-between;
             color: #fff;
             padding: 10px;
+            margin: 0px -12px 0px -12px;
             border-radius: 5px 5px 0 0;
             background: linear-gradient(90deg, #dbafe7 0%, #dbafe4 43%, #af82c5 100%);
         }
@@ -43,13 +44,12 @@
             background: linear-gradient(90deg, rgba(151,231,247,1) 0%, rgba(107,212,248,1) 43%, rgba(97,115,249,1) 100%);
         }
 
-        .header-bar a {
-            color: rgb(247, 247, 247);
-            text-decoration: none;
+        .header-bar4 {
+            background: linear-gradient(90deg, rgb(236, 152, 170) 0%, rgb(233, 99, 117) 43%, rgb(235, 30, 81) 100%);
         }
 
-        .header-bar2 a {
-            color: white;
+        .header-bar a, .header-bar2 a, .header-bar4 a  {
+            color: rgb(247, 247, 247);
             text-decoration: none;
         }
 
@@ -67,7 +67,7 @@
             border-top: 1px solid rgb(226, 226, 226);
         }
 
-        .task-title{
+        .task-title {
             display: flex;
         }
 
@@ -148,7 +148,15 @@
         .card-body {
             padding: 20px;
         }
+
+        .nav {
+            margin-left: 33px;
+        }
         
+        .count {
+            color: red;
+        }
+
     </style>
 
 </head>
