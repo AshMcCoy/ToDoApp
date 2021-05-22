@@ -53,6 +53,29 @@ Lastly, my nav bar is supposed to only highlight the tab that's clicked. Only th
 Sorry my notes are so long! Let me know if you need anything else. 
 
 
+5/21/21 - Tracy
+Love your notes!
 
+ok yay I made it so you can click on the icons to mark them complete/incomplete!
+
+Yes! I was thinking the exact same with the different color gradiants based on the new tabs. Yay!
+
+I'm not sure if you even broke anything with the header margin - I couldn't find anything but I did a work around to make it full width... hahaha 
+
+Meal Planner:
+Ok I have a few thoughts on this so I wanted to touch base with you before we did anything. I agree with your format, but I'm wondering how we can set the days. I was thinking it would be cool if it's one form and they can select the days of the week and we can figure out the function to display per day of the week and the meals in them. However, I can't think of a way to set it so it's in the right order (Sunday, Monday, Tuesday, etc). Or we can just manually type out the days of the week and then have separate forms under it? I didn't try any of them so maybe there's something out there that works. I did do a quick google and youtube search and only found this one: https://www.programmersought.com/article/45865696412/ but no idea what it looks like. I figured I will work on the other stuff first and we can decide on that together. 
+But yes, I also want to keep it as simple as we can.
+
+I fixed the tab highlighting issue (I think you just copied and pasted so the wrong tab was "active"). Thanks for finding that code tho, it's super cool!! I also centered the nav bar as much as I could. 
+
+Ok so I started watching this video:
+https://www.youtube.com/watch?v=j1mh0or2CX8
+https://gist.github.com/nikhilkumarsingh/8a88be71243afe8d69390749d16c8322
+
+I'm not sure how I feel about it hahaha ... I'm only like 8 min in, but I guess he's doing everything in terminal so probably going to take some time to figure out how to put it all in models/views. 
+Maybe there is a better video out there!
+
+I think we're almost there!! Just need to figure out how we should format the meal planner but once we do it should be easy and then the calendar!
+And then... are we done? :):)!
 
 
