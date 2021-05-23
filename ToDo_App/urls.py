@@ -26,5 +26,6 @@ urlpatterns = [
     path('bill-delete/<int:pk>/', BillDelete.as_view(), name= 'bill-delete'),
     path('bill-paid/<int:id>/', views.bill_paid, name= 'bill-paid'),
     path('bill-notpaid/<int:id>/', views.bill_notpaid, name= 'bill-notpaid'),
+    path('meal-list', MealList.as_view(), name= 'meal-list'),
 
 ]

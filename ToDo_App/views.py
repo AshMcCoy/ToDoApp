@@ -8,9 +8,13 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import Task, Grocery, Bill
+from .models import Task, Grocery, Bill, Meal
+from .forms import *
 from django.contrib import messages
 import bcrypt
+
+from apiclient.discovery import build 
+from google_auth_oauthlib.flow import InstalledAppFlow
 
 class CustomLoginView(LoginView):
     template_name= 'ToDo_App/login.html'
@@ -46,12 +50,6 @@ class TaskList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['tasks']= context['tasks'].filter(user=self.request.user)
         context['count']= context['tasks'].filter(complete=False).count()
-        
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input: 
-            context['tasks'] = context['tasks'].filter(title__startswith=search_input)
-
-        context['search_input'] = search_input
 
         return context
 
@@ -186,3 +184,14 @@ def bill_notpaid(request, id):
     mark_notpaid.paid=False;
     mark_notpaid.save()
     return redirect('/bill-list')
+
+class MealList(LoginRequiredMixin, ListView):
+    model = Meal
+    context_object_name= 'meals'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['meals']= context['meals'].filter(user=self.request.user)
+        context['count']= context['meals'].filter(complete=False).count()
+
+        return context
