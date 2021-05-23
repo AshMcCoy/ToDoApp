@@ -63,3 +63,16 @@ class Bill(models.Model):
 
     class Meta:
         ordering = ['paid']
+
+class Meal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    meal= models.CharField(max_length= 250)
+    complete=models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.meal
+
+    class Meta:
+        ordering= ['complete']

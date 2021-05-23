@@ -30,7 +30,7 @@
             font-size: 2em;
         }
 
-        .header-bar, .header-bar2, .header-bar4 {
+        .header-bar, .header-bar2, .header-bar4, .header-bar-login, .header-bar-register {
             display: flex;
             justify-content: space-between;
             color: #fff;
@@ -40,6 +40,13 @@
             background: linear-gradient(90deg, #dbafe7 0%, #dbafe4 43%, #af82c5 100%);
         }
 
+        .header-bar-register {
+            background: linear-gradient(90deg, rgba(255,0,91,1) 0%, rgba(116,5,108,1) 49%, rgba(9,9,121,1) 100%);
+        }
+
+        .header-bar-login {
+            background: linear-gradient(90deg, rgba(255,0,91,1) 0%, rgba(116,5,108,1) 49%, rgba(9,9,121,1) 100%);
+        }
         .header-bar2 {
             background: linear-gradient(90deg, rgba(151,231,247,1) 0%, rgba(107,212,248,1) 43%, rgba(97,115,249,1) 100%);
         }
@@ -48,14 +55,19 @@
             background: linear-gradient(90deg, rgb(236, 152, 170) 0%, rgb(233, 99, 117) 43%, rgb(235, 30, 81) 100%);
         }
 
+        .header-bar5 {
+            background: linear-gradient(90deg, rgba(182,249,118,1) 0%, rgba(66,171,60,1) 43%, rgba(15,111,57,1) 100%);
+        }
+
         .header-bar a, .header-bar2 a, .header-bar4 a  {
             color: rgb(247, 247, 247);
             text-decoration: none;
         }
 
         .card-body a {
-            color: rgb(169, 118, 228);
+            color: #F7005C;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .task-wrapper {
@@ -65,6 +77,7 @@
             padding: 20px;
             background-color: #fff;
             border-top: 1px solid rgb(226, 226, 226);
+            font-size: 2em;
         }
 
         .task-title {
@@ -78,32 +91,42 @@
         }
 
         .task-complete-icon {
-            height: 20px;
-            width: 20px;
+            height: 25px;
+            width: 25px;
             background-color: rgb(171, 221, 171);
             border-radius: 50%;
+            margin-top: 10px;
         }
 
         .task-incomplete-icon {
-            height: 20px;
-            width: 20px;
+            height: 25px;
+            width: 25px;
             background-color: rgb(218, 218, 218);
             border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            font-weight: bold;
         }
 
         .delete-link {
             text-decoration: none;
             font-weight: 900;
             color: #cf4949;
-            font-size: 30px;
+            font-size: 60px;
             line-height: 0;
         }
 
-        #search-add-wrapper {
+        #task-add-wrapper, #item-add-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px;
+        }
+
+        .task-input-box, .item-input-box {
+            width: 95%;
         }
 
         #add-link {
@@ -120,6 +143,13 @@
             text-shadow: 1px 1px #6173f9;
         }
 
+        #add-link3 {
+            color: #EB2454;
+            text-decoration: none;
+            font-size: 70px;
+            text-shadow: 1px 1px #EB2454;
+        }
+
         input[type=text],
         input[type=password],
         textarea {
@@ -132,6 +162,7 @@
         label {
             padding-top: 10px !important;
             display: block;
+            font-weight: bold;
         }
 
         .button {
@@ -139,10 +170,14 @@
             background-color: #FAFAFA;
             color: #a360a3;
             padding: 10px;
-            font-size: 14px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100px;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            box-shadow:#4b5156;
         }
 
         .card-body {
@@ -155,6 +190,7 @@
         
         .count {
             color: red;
+            font-weight: bold;
         }
 
     </style>

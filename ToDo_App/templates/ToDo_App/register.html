@@ -1,7 +1,7 @@
 {% extends 'ToDo_App/main.html' %}
 {% block content %}
 
-<div class="header-bar">
+<div class="header-bar-register">
     <h1>Register</h1>
 </div>
 
@@ -16,7 +16,7 @@
 
         <label>{{form.password2.label}}</label>
         {{form.password2}}
-        <input style="margin-top:10px" class="button" type="submit" value="Register">
+        <input style="margin-top:10px" class="button shadow p-3 bg-body rounded" type="submit" value="Register">
     </form>
     <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 </div>

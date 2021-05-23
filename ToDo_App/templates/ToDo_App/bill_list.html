@@ -10,7 +10,7 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a href="{% url 'tasks' %}"><button class="nav-link link-dark" id="nav-tasks-tab" data-bs-toggle="tab" data-bs-target="#nav-tasks" type="button" role="tab" aria-controls="nav-tasks" aria-selected="false">Tasks</button></a>
                         <a href="{% url 'grocery-list' %}"><button class="nav-link link-dark" id="nav-grocery-tab" data-bs-toggle="tab" data-bs-target="#nav-grocery" type="button" role="tab" aria-controls="nav-grocery" aria-selected="false">Grocery List</button></a>
-                        <button class="nav-link link-dark" id="nav-mealplanner-tab" data-bs-toggle="tab" data-bs-target="#nav-mealplanner" type="button" role="tab" aria-controls="nav-mealplanner" aria-selected="false">Meal Planner</button>
+                        <a href="{% url 'meal-list' %}"><button class="nav-link link-dark" id="nav-mealplanner-tab" data-bs-toggle="tab" data-bs-target="#nav-mealplanner" type="button" role="tab" aria-controls="nav-mealplanner" aria-selected="false">Meal Planner</button></a>
                         <a href="{% url 'bill-list' %}"><button class="nav-link active link-dark" id="nav-billtracker-tab" data-bs-toggle="tab" data-bs-target="#nav-billtracker" type="button" role="tab" aria-controls="nav-billtracker" aria-selected="true">Bill Tracker</button></a>
                         <button class="nav-link link-dark" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Events/Calendar</button>
                     </div>
@@ -33,12 +33,14 @@
     </div>
 
 
-    <div id="search-add-wrapper">
-        <form method="GET" style="margin-top: 20px; display: flex;">
-            <input type='text' name='search-area' value="{{search_input}}">
-            <input class="button ms-2" type="submit" value='Search'>
-        </form>
-        <a id="add-link2" href="{% url 'bill-create' %}">&#x2b;</a>
+    <div id="item-add-wrapper">
+        <div class="item-input-box">
+            <form action="/bill-list" method="POST" style="margin-top: 20px; display: flex;">
+                {% csrf_token %}
+                <input type="text" name="post-bill" placeholder="Add Bill...">
+            </form>
+        </div>
+        <a href="/bill-create" id="add-link3">&#x2b;</a>
     </div>
     <h3 style="margin: 0px 0px 0px 15px;">You have <i class="count">{{count}}</i> bill{{ count|pluralize:"s"}} in your bill tracker</h3>
 

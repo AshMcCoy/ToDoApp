@@ -33,12 +33,14 @@
     </div>
 
 
-    <div id="search-add-wrapper">
-        <form method="GET" style="margin-top: 20px; display: flex;">
-            <input type='text' name='search-area' value="{{search_input}}">
-            <input class="button ms-2" type="submit" value='Search'>
-        </form>
-        <a id="add-link2" href="{% url 'grocery-create' %}">&#x2b;</a>
+    <div id="item-add-wrapper">
+        <div class="item-input-box">
+            <form action="/grocery-list" method="POST" style="margin-top: 20px; display: flex;">
+                {% csrf_token %}
+                <input type="text" name="post-item" placeholder="Add Item...">
+            </form>
+        </div>
+        <a href="/grocery-create" id="add-link2">&#x2b;</a>
     </div>
     <h3 style="margin: 0px 0px 0px 15px;">You have <i class="count">{{count}}</i> item{{ count|pluralize:"s"}} in your grocery list</h3>
 

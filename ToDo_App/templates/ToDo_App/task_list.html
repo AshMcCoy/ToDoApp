@@ -10,7 +10,7 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a href="{% url 'tasks' %}"><button class="nav-link active link-dark" id="nav-tasks-tab" data-bs-toggle="tab" data-bs-target="#nav-tasks" type="button" role="tab" aria-controls="nav-tasks" aria-selected="true">Tasks</button></a>
                         <a href="{% url 'grocery-list' %}"><button class="nav-link link-dark" id="nav-grocery-tab" data-bs-toggle="tab" data-bs-target="#nav-grocery" type="button" role="tab" aria-controls="nav-grocery" aria-selected="false">Grocery List</button></a>
-                        <button class="nav-link link-dark" id="nav-mealplanner-tab" data-bs-toggle="tab" data-bs-target="#nav-mealplanner" type="button" role="tab" aria-controls="nav-mealplanner" aria-selected="false">Meal Planner</button>
+                        <a href="{% url 'meal-list' %}"><button class="nav-link link-dark" id="nav-mealplanner-tab" data-bs-toggle="tab" data-bs-target="#nav-mealplanner" type="button" role="tab" aria-controls="nav-mealplanner" aria-selected="false">Meal Planner</button></a>
                         <a href="{% url 'bill-list' %}"><button class="nav-link link-dark" id="nav-billtracker-tab" data-bs-toggle="tab" data-bs-target="#nav-billtracker" type="button" role="tab" aria-controls="nav-billtracker" aria-selected="false">Bill Tracker</button></a>
                         <button class="nav-link link-dark" id="nav-calendar-tab" data-bs-toggle="tab" data-bs-target="#nav-calendar" type="button" role="tab" aria-controls="nav-calendar" aria-selected="false">Events/Calendar</button>
                     </div>
@@ -31,16 +31,17 @@
         <a href="{% url 'login' %}" class="logout-in">Login</a>
         {% endif %}
     </div>
-
-
-    <div id="search-add-wrapper">
-        <form method="GET" style="margin-top: 20px; display: flex;">
-            <input type='text' name='search-area' value="{{search_input}}">
-            <input class="button ms-2" type="submit" value='Search'>
-        </form>
-        <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+    
+    <div id="task-add-wrapper">
+        <div class="task-input-box">
+            <form action="/" method="POST" style="margin-top: 20px; display: flex;">
+                {% csrf_token %}
+                <input type="text" name="post-task" placeholder="Add Task...">
+            </form>
+        </div>
+        <a href="/task-create" id="add-link">&#x2b;</a>
     </div>
-    <h3 style="margin: 0px 0px 0px 15px;">You have <i class="count">{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
+    <h3 style="margin: 0px 0px 0px 15px;">You have <i class="count">{{count}}</i>   incomplete task{{ count|pluralize:"s"}}</h3>
 
 
 
